@@ -143,6 +143,7 @@ class ContactsApp {
     public static void updateContacts(Console c) {
 
     //WORK IN PROGRESS - not functioning
+    //continue tomorrow
         readContacts();
         System.out.println("Please enter the contact number of the contact you want to change information from:");
         String targetId = c.readLine();

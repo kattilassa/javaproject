@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;  // Import the IOException class to handle errors
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 class ContactsApp {
     public static void main(String [] args) {
@@ -142,26 +143,36 @@ class ContactsApp {
 
     public static void updateContacts(Console c) {
 
-    //WORK IN PROGRESS - not functioning
-    //continue tomorrow
+    //ADD USER CHOICES
         readContacts();
         System.out.println("Please enter the contact number of the contact you want to change information from:");
         String targetId = c.readLine();
+        ArrayList<String> contacts = new ArrayList<String>();
+        int targetRow=0;
 
         try{
             File contactsapp = new File("contactsapp.csv");
             Scanner myReader = new Scanner(contactsapp);
 
+
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
+                contacts.add(data);
                 String info[] = data.split(",");
 
-                if (info[0].equals(targetId)) {
+
+                    if(info[0].equals(targetId)){
+                        targetRow = contacts.size() -1;
+                    }
+                }
+                myReader.close();
+
+                String[]Target = contacts.get(targetRow).split(",");
                     System.out.println("Do you want to edit this contact?");
-                    System.out.println("Contact number: "+ info[0]);
+                    System.out.println("Contact number: "+ Target[0]);
                     System.out.println("---------------------------------------" +"\n" +
-                            "Finnish ID   | " + info[1] +"\n" +"First Name   | "+ info[2] + "\n" +"Last Name    | "+ info[3] +"\n"+"Phone Number | " +
-                            info[4] +"\n"+"Address      | "+ info[5] +"\n"+"Email        | "+ info[6] +"\n"+
+                            "Finnish ID   | " + Target[1] +"\n" +"First Name   | "+ Target[2] + "\n" +"Last Name    | "+ Target[3] +"\n"+"Phone Number | " +
+                            Target[4] +"\n"+"Address      | "+ Target[5] +"\n"+"Email        | "+ Target[6] +"\n"+
                             "---------------------------------------");
                     System.out.println("1.Yes");
                     System.out.println("2.No");
@@ -189,8 +200,8 @@ class ContactsApp {
                         String newEmail=c.readLine();
 
                     contactInfo updateContact = new contactInfo(newidNumber, newfirstName, newlastName, newphoneNumber, newAddress, newEmail);
-                    String updatedInfo = updateContact.getcontactId() + "," + updateContact.getidNumber() + "," + updateContact.getfirstName()+
-                     "," +updateContact.getlastName()+ "," + updateContact.getphoneNumber()+","+ updateContact.getAddress()+","+ updateContact.getEmail()+"\n";
+                    String updatedInfo = Target[0] + "," + updateContact.getidNumber() + "," + updateContact.getfirstName()+
+                     "," +updateContact.getlastName()+ "," + updateContact.getphoneNumber()+","+ updateContact.getAddress()+","+ updateContact.getEmail();
 
                     System.out.println("Do you want to update and save this contact?:");
                     System.out.println("---------------------------------------" +"\n" +
@@ -204,24 +215,26 @@ class ContactsApp {
                     int confirm = Integer.parseInt(c.readLine());
                     //add user choices
 
+                contacts.set(targetRow,updatedInfo);
+
                 try{
-                FileWriter myWriter = new FileWriter("contactsapp.csv",true);
-                myWriter.write(updatedInfo);
-                myWriter.close();
-                System.out.println("Successfully updated the contact. How do you want to proceed?");
-                 }catch (IOException e) {
+                FileWriter myWriter = new FileWriter("contactsapp.csv");
+                    for(int i=0; i<contacts.size(); i++){
+                    myWriter.write(contacts.get(i));
+                    myWriter.write("\n");
+                    }
+                    myWriter.close();
+                    System.out.println("Successfully updated the contact. How do you want to proceed?");
+                }catch (IOException e) {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
                 }
 
                 }
-                }
+            } catch (FileNotFoundException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
             }
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
     }
 
     public static void tutorial(int infoid) {

@@ -7,6 +7,11 @@
 # BlueJ files
 *.ctxt
 
+# Ignoring Checkstyle configuration and reports
+checkstyle.xml
+checkstyle-report.xml
+target/
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 

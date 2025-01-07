@@ -1,29 +1,38 @@
 /**
 * The class UserHelp contains the tutorial method of the ContactsApp application.
 *
-* The tutorial method prints correct contact information format examples.
+* The tutorial method prints correct contact information format examples and
+* is called from other classes to guide the user.
 *
-* @return tutorial method does not return any values.
-*
-* @param infoId is the user input from the main method or an integer
-* from other methods to display specific tutorials.
-*
+* @author Kati Savolainen
+* @version 1.0
+* @since   2024-12-16
 */
 public class UserHelp {
 
+/**Constant for the Finnish ID tutorial. */
     public static final int FINNISH_ID = 1;
+/**Constant for the contact name formatting tutorial. */
     public static final int NAME = 2;
+/**Constant for the phone number tutorial. */
     public static final int PHONE_NUMBER = 3;
+/**Constant for the home address tutorial. */
     public static final int ADDRESS = 4;
+/**Constant for the email address tutorial. */
     public static final int EMAIL = 5;
+/**Constant for exiting the tutorial. */
     public static final int EXIT_TUTORIAL = 6;
 
 /**
-*
-* The tutorial method prints correct contact information format examples.
-*
-* The tutorial method is called from other classes to give guidance for the user in the contact creation process.
-*
+ *
+ * The tutorial method prints correct contact information format examples.
+ *
+ * The tutorial method is called from other classes to guide the user in the
+ * contact creation process.
+ *
+ * @param infoId is the user input from the main method or an integer
+ * from other methods to display specific tutorials.
+ *
 */
     public static void tutorial(int infoId) {
 
@@ -39,7 +48,7 @@ public class UserHelp {
                     + "Finnish ID example: 311299-9872");
                     break;
                 case NAME:
-                    System.out.println("First and last name has to be at least one character long.\n"
+                    System.out.println("First and last name needs to between 1-24 characters long.\n"
                     + "First and last name example: Matti Meikäläinen");
                     break;
                 case PHONE_NUMBER:

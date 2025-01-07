@@ -1,39 +1,43 @@
 import java.io.Console;
 
 /**
-* The class ContactsApp contains the main method of the ContactsApp application.
-*
-* The main method is the starting point for the application and it acts as a user menu.
-*
-* ContactsApp is a program where users can create, read, update and delete Finnish contacts.
-* Saved contacts are stored in a persistent CSV-file.
-*
-* @author Kati Savolainen
-* @version 1.0
-* @since   2024-12-16
-*/
+ * The class ContactsApp contains the main method of the ContactsApp application.
+ *
+ * The main method is the starting point for the application and it acts as a user menu.
+ *
+ * ContactsApp is a program where users can create, read, update and delete Finnish contacts.
+ * Saved contacts are stored in a persistent CSV-file.
+ *
+ * @author Kati Savolainen
+ * @version 1.0
+ * @since   2024-12-16
+ */
+public class ContactsApp {
 
-class ContactsApp {
-
+    /**Constant for the action of adding a new contact. */
     public static final int ADD_CONTACT = 1;
+    /**Constant for the action of reading the saved contact list. */
     public static final int READ_CONTACT = 2;
+    /**Constant for the action of editing an existing contact. */
     public static final int EDIT_CONTACT = 3;
+    /**Constant for the action of deleting an existing contact. */
     public static final int DELETE_CONTACT = 4;
+    /**Constant for the action of accessing the user tutorial. */
     public static final int TUTORIAL = 5;
+    /**Constant for the action of exiting the application. */
     public static final int EXIT_APP = 6;
 
 /**
-* The main method of the ContactsApp application prints user prompts.
-*
-* Based on the input user can:
-* - access the ContactInfo.java class for creating and managing contact information.
-* - access the UserHelp.java class for the tutorial method.
-* - shut down the application.
-*
-* @param userInput determines to which class and method user will be directed to.
-* @param infoId determines actions for the tutorial method in Userhelp.java class.
-*
-*/
+ * The main method of the ContactsApp application prints user prompts.
+ *
+ * Based on the input user can:
+ * - access the ContactInfo.java class for creating and managing contact information.
+ * - access the UserHelp.java class for the tutorial method.
+ * - shut down the application.
+ *
+ * @param args command-line arguments are not used in this application.
+ *
+ */
     public static void main(String[] args) {
         Console c = System.console();
 

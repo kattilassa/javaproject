@@ -97,8 +97,7 @@ public class ContactInfo {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+            System.out.println();
         }
         this.contactId = Integer.toString(newId);
     }
@@ -136,7 +135,6 @@ public class ContactInfo {
                 }
                 this.phoneNumber = validNumber;
             } else {
-                System.out.println("invalid input - seek help from our phone number formatting tutorial");
                 UserHelp.tutorial(3);
                 throw new IllegalArgumentException("Phone number needs to be formatted correctly!");
             }
@@ -167,7 +165,6 @@ public class ContactInfo {
  */
     public void setidNumber(String input) {
         if (input.length() != 11) {
-            System.out.println("invalid input - seek help from our Finnish ID formatting tutorial");
             UserHelp.tutorial(1);
             throw new IllegalArgumentException("Finnish ID needs to be formatted correctly");
         }
@@ -203,7 +200,6 @@ public class ContactInfo {
             //If the last character from the ID matches the control character
             //user inputted Finnish ID is valid.
             } else {
-            System.out.println("invalid input - seek help from our Finnish ID formatting tutorial");
             UserHelp.tutorial(1);
             throw new IllegalArgumentException("Finnish ID needs to be formatted correctly!");
 
@@ -241,9 +237,8 @@ public class ContactInfo {
             }
             this.firstName = validName;
         } else {
-            System.out.println("invalid input - seek help from our formatting tutorial");
             UserHelp.tutorial(2);
-            throw new IllegalArgumentException("Formatting error!");
+            throw new IllegalArgumentException("First name needs to be formatted correctly!");
         }
     }
 
@@ -279,9 +274,8 @@ public class ContactInfo {
                 }
             this.lastName = validLastName;
         } else {
-            System.out.println("invalid input - seek help from our formatting tutorial");
             UserHelp.tutorial(2);
-            throw new IllegalArgumentException("Formatting error!");
+            throw new IllegalArgumentException("Last name needs to be formatted correctly!");
         }
     }
 
@@ -327,9 +321,8 @@ public class ContactInfo {
         } else if (match.matches()) {
         this.address = address;
         } else {
-            System.out.println("invalid input - seek help from our formatting tutorial");
             UserHelp.tutorial(4);
-            throw new IllegalArgumentException("Address format error!");
+            throw new IllegalArgumentException("Address needs to be formatted correctly!");
         }
     }
 
@@ -364,13 +357,12 @@ public class ContactInfo {
 
         if (email.equals(option)) {
             this.email = empty;
-            //the email address will be set to "-" if the user wishes to skip this part.
+        //the email address will be set to "-" if the user wishes to skip this part.
         } else if (match.matches()) {
         this.email = email;
         } else {
-            System.out.println("invalid input - seek help from our formatting tutorial");
             UserHelp.tutorial(5);
-            throw new IllegalArgumentException("Email format error!");
+            throw new IllegalArgumentException("Email needs to be formatted correctly!");
         }
     }
 /**
@@ -407,12 +399,18 @@ public class ContactInfo {
 
         //Create a contact after the user input has been
         // validated through the constructor.
+        try {
         ContactInfo newContact = new ContactInfo(
         idNumber, firstName, lastName, phoneNumber, address, email);
 
         writeandConfirm(c, newContact);
         //writeandConfirm method is called to display
         //the contact and print user prompts.
+
+        } catch (IllegalArgumentException e) {
+        System.out.println("Invalid input: Please start the contact creation process from the beginning!");
+        System.out.println();
+        }
     }
 /**
  * writeandConfirm method displays the contact details after the
@@ -430,6 +428,7 @@ public class ContactInfo {
  * @param newContact is the new contact created in the contact creation process.
  */
     public static void writeandConfirm(Console c, ContactInfo newContact) {
+
         System.out.println("Do you want to save this contact?:");
         System.out.println("---------------------------------------"
             + "\n"
@@ -468,12 +467,9 @@ public class ContactInfo {
             + newContact.getEmail()
             + "\n"); //new line after every contact
             myWriter.close();
-
             System.out.println("Successfully added a new contact. How do you want to proceed?");
-
         } catch (IOException e) {
             System.out.println("An error occurred.");
-            e.printStackTrace();
         }
         } else if (confirm == CANCEL) {
             newContact(c);
@@ -503,7 +499,7 @@ public class ContactInfo {
         while (myReader.hasNextLine()) {
         String data = myReader.nextLine();
         String info[] = data.split(",");
-        //After reading each line, contact details are splitted by the commas
+        //After reading each line, contact details are split by the commas
         //and stored in an array for printing.
 
         //Contact details are printed to standard output in this order:
@@ -526,8 +522,9 @@ public class ContactInfo {
         }
         myReader.close();
     } catch (FileNotFoundException e) {
-        System.out.println("An error occurred.");
-        e.printStackTrace();
+        System.out.println("An error occurred - no contacts found.");
+        System.out.println("Enter 1 to return back to menu from the editing or deleting process.");
+        System.out.println();
         }
     }
 /**
@@ -552,8 +549,8 @@ public class ContactInfo {
         //CSV-file. This ArrayList will be written back to the CSV-file later if
         //the user confirms the contact detail changes.
 
-        int targetRow = 0;
-        //targetRow is set to 0 as default and will be replaced with the index
+        int targetRow = - 1;
+        //targetRow is set to -1 as default and will be replaced with the index
         //of the selected contact if the contact ID is found from the list.
 
         try {
@@ -571,10 +568,11 @@ public class ContactInfo {
                 }
                 myReader.close();
             } catch (FileNotFoundException e) {
-                System.out.println("An error occurred.");
-                e.printStackTrace();
+                System.out.println("Error: no contacts found, please add contacts first.");
+                System.out.println();
             }
 
+            if (targetRow != - 1) {
                 //Splits and prints the target contact info to the user
                 //if any of the contact ID's matched to the user input.
                 String[]Target = contacts.get(targetRow).split(",");
@@ -638,7 +636,7 @@ public class ContactInfo {
                 + updateContact.getAddress() + ","
                 + updateContact.getEmail();
 
-                //User gets so see the contact information before rewriting
+                //User gets to see the contact information before rewriting
                 //the contact to the CSV-file in the target row line.
                 System.out.println("Do you want to update and save this contact?:");
                 System.out.println("---------------------------------------"
@@ -676,7 +674,6 @@ public class ContactInfo {
                                 System.out.println("Successfully updated the contact. How do you want to proceed?");
                     } catch (IOException e) {
                         System.out.println("An error occurred.");
-                        e.printStackTrace();
                     }
                 } else if (confirm == CANCEL) {
                     return;
@@ -687,6 +684,7 @@ public class ContactInfo {
                 //and start the process from the beginning.
             } else {
                 return;
+            }
             }
     }
 /**
@@ -701,7 +699,12 @@ public class ContactInfo {
  */
     public static void deleteContacts(Console c) {
 
-    readContacts();
+        try {
+            readContacts();
+        } catch (Exception e) {
+                System.out.println("No contacts found.");
+                return;
+            }
     //readContacts method displays the contact list for the user.
     System.out.println("Please enter the contact ID of the contact you want to delete:");
     //prompts the user to enter the contact ID for the contact they want to delete.
@@ -710,8 +713,8 @@ public class ContactInfo {
     //ArrayList is created for reading and storing all the contacts from the
     //CSV-file. This ArrayList will be written back to the CSV-file later if
     //the user confirms the contact deletion.
-        int targetRow = 0;
-    //targetRow is set to 0 as default and will be replaced with the index
+        int targetRow = -1;
+    //targetRow is set to -1 as default and will be replaced with the index
     //of the selected contact if the contact ID is found from the list.
 
         try {
@@ -730,10 +733,10 @@ public class ContactInfo {
                 myReader.close();
             } catch (FileNotFoundException e) {
                 System.out.println("An error occurred.");
-                e.printStackTrace();
             }
                 //Splits and prints the target contact info to the user
                 //if any of the contact ID's matched to the user input.
+            if (targetRow != -1) {
                 String[]Target = contacts.get(targetRow).split(",");
                     System.out.println("Are you sure you want to delete this contact?");
                     System.out.println("Contact ID: " + Target[0]);
@@ -762,6 +765,7 @@ public class ContactInfo {
                     //Select a new contact from the contact list.
                     //Exit back to the user menu.
 
+
         if (confirm == YES) {
             try {
                 contacts.remove(targetRow);
@@ -776,7 +780,6 @@ public class ContactInfo {
                     myWriter.close();
                 } catch (IOException e) {
                     System.out.println("An error occurred.");
-                    e.printStackTrace();
                 }
         } else if (confirm == CANCEL) {
             //User can cancel and start the deletion process from the beginning.
@@ -784,6 +787,7 @@ public class ContactInfo {
         } else {
             //User can also exit back to the menu.
             return;
+            }
         }
     }
 }

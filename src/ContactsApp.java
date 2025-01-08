@@ -84,7 +84,7 @@ public class ContactsApp {
                     break;
                 case EXIT_APP:
                     running = false;
-                    System.out.println("Thank you for using our application - see you soon!");
+                    System.out.println("Thank you for using ContactsApp - see you soon!");
                     break;
             }
         }

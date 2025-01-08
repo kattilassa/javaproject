@@ -66,16 +66,15 @@ Tutorials that I have implemented onto my program.
 Hopefully these links will help someone else too:
 
 How to create and read files:
-[Create a file](https://www.w3schools.com/java/java_files_create.asp)
+[Create a file](https://www.w3schools.com/java/java_files_create.asp) ,
 [Read a file](https://www.w3schools.com/java/java_files_read.asp)
 
 String validation:
-[startsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)
+[startsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith) ,
 [Regex email validation](https://stackoverflow.com/questions/8204680/java-regex-email)
 
 Arraylist:
-
-[ArrayList](https://www.w3schools.com/java/java_arraylist.asp)
-[ArrayList get method](https://www.geeksforgeeks.org/arraylist-get-method-java-examples/)
-[Remove an element](https://www.geeksforgeeks.org/remove-an-element-at-specific-index-from-an-array-in-java/)
+[ArrayList](https://www.w3schools.com/java/java_arraylist.asp) ,
+[ArrayList get method](https://www.geeksforgeeks.org/arraylist-get-method-java-examples/) ,
+[Remove an element](https://www.geeksforgeeks.org/remove-an-element-at-specific-index-from-an-array-in-java/) ,
 [Remove() method](https://www.w3schools.com/java/ref_arraylist_remove.asp)

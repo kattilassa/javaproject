@@ -61,6 +61,37 @@ in the contact creation process.
 
 Input 6 to shut down and exit the application.
 
+# Key Features:
+
+**User Menu:**
+
+Contactsapp offers a user-friendly user menu that is easy to navigate.
+
+**Add Contacts:**
+
+Users can add new contacts to the contact list.
+ContactsApp also offers guidance throughout the contact creation process.
+
+**Read Contacts:**
+
+User is able to view all the contact details in a list format.
+This ensures an easily readable contact list.
+
+**Edit Contacts:**
+
+Users can update any of the existing contact details.
+
+**Delete Contacts:**
+
+Users can delete any of the existing contact details from the contact list.
+
+**Contact Details:**
+
+Users can save and view detailed information for each contact,
+providing a contact profile in the CSV-file.
+Each contact has a unique contact ID, Finnish ID, first and last name, and phone number.
+User also has the option to save home and email addresses for the contacts.
+
 # Credits
 Tutorials that I have implemented onto my program.
 Hopefully these links will help someone else too:

@@ -13,7 +13,7 @@ improve my Java coding skills and the quality of my code.
 
 # How to use?
 
-i. Compiling and running the application.
+**i. Compiling and running the application.**
 
 Go to the javaproject folder through the terminal with:
 
@@ -24,7 +24,7 @@ the following command:
 
 javac *.java && java ContactsApp
 
-ii. User menu
+**ii. User menu**
 
 ![User menu](docs/images/usermenu.png)
 
@@ -33,25 +33,32 @@ user prompts to the standard output. Input numbers according to the user prompts
 to navigate through the program.
 
 Insert one of these numbers to begin using your ContactsApp application:
+
 1. **Add a new contact:**
+
 Input 1. to add a new contact according to the instructions printed to standard output.
 
 2. **View contact information:**
+
 Input 2. to view currently stored contact information as a contact list.
 
 3. **Edit contact details:**
+
 Input 3. to edit contact details from a specific contact according to the
 instructions printed to standard output.
 
 4. **Delete a contact:**
+
 Input 4 to delete contacts from the contact list according to the instructions
 printed to standard output.
 
 5. **Contact formatting guide:**
+
 Input 5 to access the contact formatting guide that acts as a user tutorial
 in the contact creation process.
 
 6. **Exit the application:**
+
 Input 6 to shut down and exit the application.
 
 # Credits

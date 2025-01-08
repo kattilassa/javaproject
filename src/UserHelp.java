@@ -1,8 +1,8 @@
 /**
 * The class UserHelp contains the tutorial method of the ContactsApp application.
 *
-* The tutorial method prints correct contact information format examples and
-* is called from other classes to guide the user.
+* The tutorial method prints correct contact information format examples to
+* standard output.
 *
 * @author Kati Savolainen
 * @version 1.0
@@ -32,8 +32,7 @@ public class UserHelp {
  *
  * @param infoId is the user input from the main method or an integer
  * from other methods to display specific tutorials.
- *
-*/
+ */
     public static void tutorial(int infoId) {
 
             switch (infoId) {

@@ -19,7 +19,6 @@ import java.util.regex.Pattern;
 * @author Kati Savolainen
 * @version 1.0
 * @since   2024-12-16
-*
 */
 public class ContactInfo {
     /**Finnish ID number of the contact. */
@@ -58,7 +57,6 @@ public class ContactInfo {
  * @param phoneNumber is the phone number of the contact.
  * @param address is the home address of the contact.
  * @param email is the email address of the contact.
- *
  */
     public ContactInfo(String idNumber, String firstName, String lastName,
         String phoneNumber, String address, String email) {
@@ -79,7 +77,6 @@ public class ContactInfo {
  *
  * If contactsapp.csv has not been created or no previous ID's have not been set
  * - the first contact ID will be assigned as 1.
- *
  */
     public void setcontactId() {
 
@@ -121,7 +118,6 @@ public class ContactInfo {
  * and the input is between 7-13 digits and contains only digits.
  *
  * @param phoneNumber is the phone number sent by the user in the contact creation process.
- *
  */
     public void setphoneNumber(String phoneNumber) {
 
@@ -168,7 +164,6 @@ public class ContactInfo {
  * the Finnish ID is formatted correctly and it's an valid Finnish ID.
  *
  * @param input Finnish ID sent by the user in the contact creation process.
- *
  */
     public void setidNumber(String input) {
         if (input.length() != 11) {
@@ -232,7 +227,6 @@ public class ContactInfo {
  * this method also allows hyphens between names such as "Hanna-Mari".
  *
  * @param name is the first name of the contact sent by the user in the contact creation process.
- *
  */
     public void setfirstName(String name) {
         String validName = "";
@@ -270,7 +264,6 @@ public class ContactInfo {
  * this method also allows hyphenated last names such as "Meikäläinen-Mattilainen".
  *
  * @param lastName is the last name of the contact sent by the user in the contact creation process.
- *
  */
     public void setlastName(String lastName) {
         String validLastName = "";
@@ -321,7 +314,6 @@ public class ContactInfo {
  * the contact address will be set to "-" by default and can be changed later.
  *
  * @param address is the home address of the contact sent by the user in the contact creation process.
- *
  */
     public void setAddress(String address) {
         String option = "1";
@@ -362,7 +354,6 @@ public class ContactInfo {
  * the contact email will be set to "-" by default and can be changed later.
  *
  * @param email is the email address of the contact sent by the user in the contact creation process.
- *
  */
     public void setEmail(String email) {
         String option = "1";
@@ -392,7 +383,6 @@ public class ContactInfo {
  * display the contact details to the user.
  *
  * @param c console for reading user input.
- *
  */
     public static void newContact(Console c) {
 
@@ -438,7 +428,6 @@ public class ContactInfo {
  *
  * @param c Console for reading user input.
  * @param newContact is the new contact created in the contact creation process.
- *
  */
     public static void writeandConfirm(Console c, ContactInfo newContact) {
         System.out.println("Do you want to save this contact?:");
@@ -501,11 +490,10 @@ public class ContactInfo {
 
 /**
  * readContacts method reads all saved contact details from the CSV-file
- * and prints them to the standard output.
+ * and prints them to standard output.
  *
  * User is able to view all the contact details stored in the CSV-file through
  * this method as it prints the contact details arranged as a contact list.
- *
  */
     public static void readContacts() {
 
@@ -518,7 +506,7 @@ public class ContactInfo {
         //After reading each line, contact details are splitted by the commas
         //and stored in an array for printing.
 
-        //Contact details are printed to the standard output in this order:
+        //Contact details are printed to standard output in this order:
         System.out.println("Contact ID:  " + info[0]);
         System.out.println("---------------------------------------"
         + "\n"
@@ -550,7 +538,6 @@ public class ContactInfo {
  * and the updated contact list will be written back to the CSV-file.
  *
  * @param c Console for reading user input.
- *
  */
     public static void updateContacts(Console c) {
 
@@ -711,7 +698,6 @@ public class ContactInfo {
  * contact has been deleted from the ArrayList.
  *
  * @param c Console for reading user input.
- *
  */
     public static void deleteContacts(Console c) {
 

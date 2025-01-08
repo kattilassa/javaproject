@@ -28,7 +28,8 @@ public class ContactsApp {
     public static final int EXIT_APP = 6;
 
 /**
- * The main method of the ContactsApp application prints user prompts.
+ * The main method of the ContactsApp application prints user prompts
+ * to standard output.
  *
  * Based on the input user can:
  * - access the ContactInfo.java class for creating and managing contact information.
@@ -36,7 +37,6 @@ public class ContactsApp {
  * - shut down the application.
  *
  * @param args command-line arguments are not used in this application.
- *
  */
     public static void main(String[] args) {
         Console c = System.console();

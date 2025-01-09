@@ -5,6 +5,8 @@ Finnish contacts. Contacts are stored in a persistent text file.
 
 The project was coded in Java and built using Visual Studio Code.
 
+[ContactsApp screencast](https://youtu.be/c6Og6mO6RBU)
+
 # Motivation
 
 ContactsApp serves as a final project for the Introduction to programming course.
